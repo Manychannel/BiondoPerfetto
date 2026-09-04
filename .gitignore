@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+
+# Scaffold state from an unused alternate deploy pipeline (not used by
+# this Vite app / Vercel deploy).
+.wrangler/
+.vinext/
+.openai/
+.next/
