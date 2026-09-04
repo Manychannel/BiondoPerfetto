@@ -134,7 +134,6 @@ export function BlondeHero() {
           loop
           playsInline
           preload="auto"
-          poster="/biondo-dopo.jpg"
           aria-hidden="true"
         >
           <source src="/biondo-perfetto.mp4" type="video/mp4" />
