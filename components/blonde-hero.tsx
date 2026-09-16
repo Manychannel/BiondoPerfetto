@@ -22,25 +22,39 @@ import {
 
 const methodSteps = [
   {
-    value: "diagnosi",
+    value: "consulenza",
     number: "01",
-    title: "Ascolto e diagnosi",
+    title: "Consulenza e diagnosi del capello",
     content:
-      "Ricostruiamo la storia tecnica del capello e ne valutiamo struttura, elasticità, porosità e sottotono. È il momento in cui desiderio e possibilità reali trovano un punto d’incontro.",
+      "Valutiamo insieme il punto di partenza: struttura e qualità del capello, colore naturale, trattamenti già effettuati e risultato desiderato. Scegliamo il biondo più adatto al tuo incarnato, ai tuoi lineamenti e al tuo stile.",
   },
   {
-    value: "progetto",
+    value: "cleansing",
     number: "02",
-    title: "Progetto colore",
+    title: "Preparazione e Hair Cleansing",
     content:
-      "Definiamo tonalità, tecnica, numero di sedute e tempi di posa. Il progetto è personale e progressivo: ogni scelta protegge la qualità del capello mentre costruisce il risultato.",
+      "Quando serve, prepariamo il capello eliminando residui e impurità che potrebbero compromettere la resa della colorazione. Una base pulita è la condizione per una schiaritura uniforme.",
   },
   {
-    value: "mantenimento",
+    value: "ricostruzione",
     number: "03",
-    title: "Trattamento e mantenimento",
+    title: "Ricostruzione e protezione",
     content:
-      "Selezioniamo i trattamenti professionali e la routine domiciliare necessari a conservare forza, luminosità e precisione del tono tra un appuntamento e il successivo.",
+      "Prima, durante e dopo la schiaritura lavoriamo sulla fibra con trattamenti specifici senza siliconi: cheratina, sali minerali, creme nutrienti e correttori di pH. Per noi un bel biondo deve essere prima di tutto un biondo sano.",
+  },
+  {
+    value: "schiaritura",
+    number: "04",
+    title: "Tecnica di schiaritura personalizzata",
+    content:
+      "Air Touch, Hair Touch, Balayage, Baby Lights o altre tecniche vengono scelte e combinate in base al risultato da ottenere. L’obiettivo è creare luminosità, profondità e sfumature armoniose, evitando effetti artificiali o stacchi netti alla ricrescita.",
+  },
+  {
+    value: "tonalizzazione",
+    number: "05",
+    title: "Stabilizzazione e tonalizzazione",
+    content:
+      "Completiamo il lavoro con trattamenti acidificanti e tonalizzazioni personalizzate, per neutralizzare riflessi indesiderati come giallo o arancio e fissare la tonalità più adatta a te.",
   },
 ] as const;
 
@@ -50,6 +64,11 @@ const faqCategories: FaqCategory[] = [
     description:
       "Ogni biondo nasce da condizioni diverse. La consulenza serve a trasformare un desiderio in un progetto realistico, leggibile e rispettoso del capello.",
     items: [
+      {
+        question: "Perché scegliere il Metodo Biondo Perfetto?",
+        answer:
+          "Perché dietro ogni risultato c’è studio, esperienza, diagnosi e personalizzazione. Non inseguiamo soltanto il colore che desideri oggi: lavoriamo affinché i tuoi capelli rimangano belli, forti e luminosi anche domani. Il tuo biondo, la tua identità, il nostro metodo.",
+      },
       {
         question: "Perché la consulenza è indispensabile?",
         answer:
@@ -266,16 +285,16 @@ export function BlondeHero() {
           <div className="method-body">
             <div className="method-story">
               <p className="method-lead">
-                Un biondo impeccabile non comincia dalla schiaritura. Comincia
-                da una consulenza capace di leggere ciò che il capello può
-                diventare, senza ignorare ciò che è stato.
+                Il Metodo Biondo Perfetto nasce da un’idea precisa: creare un
+                biondo luminoso, naturale e personalizzato, senza dimenticare
+                mai la salute del capello.
               </p>
               <p className="method-copy">
-                Analizziamo struttura, storico tecnico, sottotono e abitudini.
-                Da qui definiamo insieme il risultato, il numero di sedute e i
-                trattamenti necessari a preservare forza, elasticità e luce.
-                Ogni scelta ha una ragione; ogni fase rispetta il tempo del
-                capello.
+                Non è una semplice tecnica di schiaritura e non esiste un
+                procedimento uguale per tutte: ogni capello ha una storia
+                diversa, una struttura diversa e soprattutto esigenze diverse.
+                Per questo il percorso viene costruito su misura e può
+                prevedere diverse fasi.
               </p>
               <Accordion
                 className="method-accordion"
@@ -293,6 +312,13 @@ export function BlondeHero() {
                   </AccordionItem>
                 ))}
               </Accordion>
+              <p className="method-outro">
+                Il risultato? Un biondo che non sembra semplicemente “fatto”,
+                ma pensato per te: luminoso, elegante, naturale,
+                tridimensionale e con una crescita più morbida nel tempo. Il
+                nostro obiettivo non è portarti al biondo più chiaro
+                possibile, ma al <em>tuo</em> Biondo Perfetto.
+              </p>
               <WhatsAppCta
                 className="method-link"
                 message="Ciao! Ho letto il metodo Biondo Perfetto e vorrei prenotare una consulenza."

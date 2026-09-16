@@ -772,6 +772,21 @@ a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset:
   border-top: 1px solid rgba(244, 240, 233, 0.15);
 }
 
+.method-outro {
+  max-width: 430px;
+  margin-top: 30px;
+  color: rgba(244, 240, 233, 0.78);
+  font-size: clamp(0.86rem, 0.88vw, 1rem);
+  line-height: 1.6;
+}
+
+.method-outro em {
+  color: #e3c58f;
+  font-style: normal;
+  font-weight: 600;
+}
+
+
 .accordion-item {
   border-bottom: 1px solid rgba(244, 240, 233, 0.15);
 }
