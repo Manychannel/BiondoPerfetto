@@ -7,16 +7,21 @@ export const siteConfig = {
   businessName: "Diamoci un Taglio",
   serviceName: "Biondo Perfetto",
 
-  whatsappNumber: "393357907909",
+  // Dati legali della titolare (pagine privacy/cookie e footer).
+  legalName: "Giordani Francesca",
+  vatNumber: "02270720598",
+  email: "diamoci.untaglio@hotmail.it",
+
+  whatsappNumber: "393808904129",
 
   // Messaggio precompilato che il cliente vedrà aprendo la chat.
   whatsappDefaultMessage:
     "Ciao! Ho visto la pagina Biondo Perfetto e vorrei prenotare una consulenza per il colore dei miei capelli.",
 
-  phoneDisplay: "+39 335 790 7909",
+  phoneDisplay: "+39 380 890 4129",
 
   address: {
-    streetAddress: "Via G. Mazzini, 13",
+    streetAddress: "Via G. Mazzini, 17",
     addressLocality: "Cisterna di Latina",
     addressRegion: "LT",
     postalCode: "04012",

@@ -1,7 +1,14 @@
+import { siteConfig } from "@/lib/site-config";
+
 interface LegalBlock {
   heading: string;
   body: string;
 }
+
+const { address } = siteConfig;
+const fullAddress = `${address.streetAddress}, ${address.postalCode} ${address.addressLocality} (${address.addressRegion})`;
+const controller = `${siteConfig.businessName} di ${siteConfig.legalName} – ${fullAddress} – P.IVA ${siteConfig.vatNumber} – Email: ${siteConfig.email} – Telefono: ${siteConfig.phoneDisplay}`;
+const lastUpdated = "Ultimo aggiornamento: 30 ottobre 2026.";
 
 function LegalSection({
   id,
@@ -19,10 +26,6 @@ function LegalSection({
       <div className="legal-inner">
         <p className="legal-eyebrow">{eyebrow}</p>
         <h2 className="legal-title">{title}</h2>
-        <p className="legal-draft-notice">
-          Bozza da completare prima della pubblicazione: sostituisci i testi
-          tra parentesi quadre con le informazioni reali del salone.
-        </p>
 
         {blocks.map((block) => (
           <div className="legal-block" key={block.heading}>
@@ -44,35 +47,35 @@ export function PrivacyPolicySection() {
       blocks={[
         {
           heading: "Titolare del trattamento",
-          body: "[Ragione sociale] – [Indirizzo completo] – P.IVA [numero] – Email: [indirizzo email] – Telefono: [numero]",
+          body: controller,
         },
         {
           heading: "Tipologie di dati raccolti",
-          body: "[Es. nome, numero di telefono e messaggi scambiati tramite WhatsApp; dati forniti volontariamente durante la consulenza; dati di navigazione anonimi raccolti dal sito.]",
+          body: "Nome, numero di telefono e contenuto dei messaggi che ci invii su WhatsApp (incluse eventuali foto dei capelli inviate volontariamente); informazioni sul capello e sui trattamenti precedenti fornite durante la consulenza; dati tecnici di navigazione (indirizzo IP, tipo di browser, data e ora della richiesta) registrati automaticamente dal server che ospita il sito.",
         },
         {
           heading: "Finalità del trattamento",
-          body: "[Es. rispondere alle richieste di consulenza ricevute su WhatsApp, gestire gli appuntamenti, inviare comunicazioni promozionali solo previo consenso specifico.]",
+          body: "Rispondere alle richieste di informazioni e di consulenza, fissare e gestire gli appuntamenti in salone, garantire il corretto funzionamento e la sicurezza del sito. I dati non vengono usati per comunicazioni promozionali senza un tuo consenso specifico.",
         },
         {
           heading: "Base giuridica",
-          body: "[Es. esecuzione di misure precontrattuali su richiesta dell'interessato; consenso dell'interessato per eventuali comunicazioni di marketing.]",
+          body: "Esecuzione di misure precontrattuali adottate su tua richiesta (art. 6.1.b GDPR) per rispondere ai messaggi e gestire gli appuntamenti; legittimo interesse del titolare alla sicurezza del sito (art. 6.1.f GDPR) per i dati tecnici di navigazione; consenso (art. 6.1.a GDPR) per eventuali comunicazioni promozionali.",
         },
         {
           heading: "Conservazione dei dati",
-          body: "[Indica per quanto tempo vengono conservati i dati e i criteri usati per stabilirlo.]",
+          body: "I dati delle richieste vengono conservati per il tempo necessario a gestire la consulenza e gli appuntamenti e, in ogni caso, non oltre 24 mesi dall'ultimo contatto, salvo obblighi di legge (ad esempio fiscali) che ne richiedano una conservazione più lunga. I dati tecnici di navigazione vengono conservati per il periodo strettamente necessario alla sicurezza del servizio.",
         },
         {
           heading: "Comunicazione a terzi",
-          body: "[Es. i messaggi ricevuti tramite WhatsApp sono gestiti anche da WhatsApp/Meta in qualità di responsabile del trattamento, secondo la relativa informativa privacy.]",
+          body: "I messaggi su WhatsApp transitano sulla piattaforma di WhatsApp Ireland Ltd (gruppo Meta), che li tratta secondo la propria informativa privacy. Il sito è ospitato da Vercel Inc., che agisce come responsabile del trattamento; i dati tecnici possono essere trasferiti negli Stati Uniti sulla base dell'EU-US Data Privacy Framework o delle clausole contrattuali standard approvate dalla Commissione europea. I dati non vengono venduti né diffusi.",
         },
         {
           heading: "Diritti dell'interessato",
-          body: "In qualsiasi momento puoi richiedere l'accesso, la rettifica, la cancellazione o la limitazione del trattamento dei tuoi dati, opporti al trattamento e proporre reclamo al Garante per la Protezione dei Dati Personali. Per esercitare questi diritti scrivi a: [email di contatto].",
+          body: `In qualsiasi momento puoi richiedere l'accesso, la rettifica, la cancellazione o la limitazione del trattamento dei tuoi dati, la loro portabilità, opporti al trattamento e revocare il consenso eventualmente prestato (artt. 15-22 GDPR), oltre a proporre reclamo al Garante per la Protezione dei Dati Personali. Per esercitare questi diritti scrivi a: ${siteConfig.email}.`,
         },
         {
           heading: "Aggiornamento",
-          body: "Ultimo aggiornamento: [data].",
+          body: lastUpdated,
         },
       ]}
     />
@@ -92,11 +95,11 @@ export function CookiePolicySection() {
         },
         {
           heading: "Cookie utilizzati da questo sito",
-          body: "Al momento questo sito non utilizza cookie di profilazione o di terze parti: i link ai profili social e a WhatsApp portano l'utente fuori dal sito, su piattaforme con una propria informativa cookie indipendente. Se in futuro verranno aggiunti strumenti come Google Analytics, Meta Pixel o un pulsante WhatsApp integrato, questa sezione dovrà essere aggiornata elencandoli.",
+          body: "Questo sito non utilizza cookie di profilazione né cookie di terze parti. I link ai profili social, a Google e a WhatsApp portano l'utente fuori dal sito, su piattaforme che applicano una propria informativa cookie indipendente.",
         },
         {
           heading: "Consenso",
-          body: "[Se in futuro verranno introdotti cookie non tecnici, sarà necessario raccogliere il consenso dell'utente tramite un cookie banner conforme alle linee guida del Garante Privacy prima di attivarli.]",
+          body: "Poiché il sito non installa cookie non tecnici, non è richiesto alcun consenso. Se in futuro verranno introdotti strumenti di statistica o di marketing (ad esempio Google Analytics o Meta Pixel), verranno attivati solo dopo il tuo consenso, raccolto tramite un apposito banner, e questa informativa verrà aggiornata.",
         },
         {
           heading: "Come gestire i cookie dal browser",
@@ -104,11 +107,11 @@ export function CookiePolicySection() {
         },
         {
           heading: "Titolare del trattamento",
-          body: "[Ragione sociale] – Email: [indirizzo email di contatto]",
+          body: controller,
         },
         {
           heading: "Aggiornamento",
-          body: "Ultimo aggiornamento: [data].",
+          body: lastUpdated,
         },
       ]}
     />

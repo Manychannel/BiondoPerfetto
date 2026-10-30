@@ -149,7 +149,12 @@ export function Footer() {
           </div>
 
           <motion.div variants={riseVariants} className="footer-bottom">
-            <p>© 2026 Diamoci un Taglio. Tutti i diritti riservati.</p>
+            <p>
+              © 2026 {siteConfig.businessName} di {siteConfig.legalName} ·{" "}
+              {siteConfig.address.streetAddress}, {siteConfig.address.postalCode}{" "}
+              {siteConfig.address.addressLocality} ({siteConfig.address.addressRegion}) · P.IVA{" "}
+              {siteConfig.vatNumber}
+            </p>
 
             <div className="footer-meta">
               {(siteConfig.instagramUrl || siteConfig.facebookUrl) && (

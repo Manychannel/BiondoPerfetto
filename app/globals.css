@@ -1279,17 +1279,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset:
   letter-spacing: -0.02em;
 }
 
-.legal-draft-notice {
-  margin: 0 0 46px;
-  padding: 14px 18px;
-  border: 1px dashed rgba(157, 119, 57, 0.55);
-  border-radius: 10px;
-  color: #9c783e;
-  font-size: 0.86rem;
-  font-style: italic;
-  line-height: 1.5;
-}
-
 .legal-block + .legal-block { margin-top: 30px; }
 .legal-block h3 {
   margin: 0 0 8px;
@@ -1463,6 +1452,17 @@ a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset:
   font-size: 0.86rem;
 }
 .final-cta-points li { position: relative; padding-left: 16px; }
+.final-cta-address {
+  margin: 34px 0 0;
+  color: rgba(244, 239, 232, 0.62);
+  font-size: 0.86rem;
+  font-style: normal;
+  line-height: 1.6;
+}
+.final-cta-address a {
+  color: #c9a66b;
+  text-underline-offset: 3px;
+}
 .final-cta-points li::before {
   position: absolute;
   left: 0;

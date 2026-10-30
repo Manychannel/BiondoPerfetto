@@ -13,6 +13,7 @@ import { StickyWhatsAppBar } from "@/components/sticky-whatsapp-bar";
 import { StructuredData } from "@/components/structured-data";
 import { SocialProof } from "@/components/social-proof";
 import { fadeUp } from "@/lib/motion-variants";
+import { siteConfig } from "@/lib/site-config";
 import {
   Accordion,
   AccordionContent,
@@ -57,6 +58,24 @@ const methodSteps = [
       "Completiamo il lavoro con trattamenti acidificanti e tonalizzazioni personalizzate, per neutralizzare riflessi indesiderati come giallo o arancio e fissare la tonalità più adatta a te.",
   },
 ] as const;
+
+const { address } = siteConfig;
+const fullAddress = `${address.streetAddress}, ${address.postalCode} ${address.addressLocality} (${address.addressRegion})`;
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${siteConfig.businessName}, ${fullAddress}`)}`;
+
+// Richiesta guidata per il CTA finale: al posto di un form, la cliente
+// completa queste righe direttamente nella chat WhatsApp.
+const requestMessage = [
+  "Ciao! Vorrei richiedere una consulenza per il Biondo Perfetto.",
+  "",
+  "Nome: ",
+  "Colore attuale dei capelli: ",
+  "Ultimo colore o schiaritura (e quando): ",
+  "Il biondo che vorrei: ",
+  "Giorni/orari preferiti: ",
+  "",
+  "Se serve vi mando anche una foto dei miei capelli.",
+].join("\n");
 
 const faqCategories: FaqCategory[] = [
   {
@@ -177,7 +196,7 @@ export function BlondeHero() {
             <span />
           </button>
 
-          <a className="contact-link" href="#contatti">Contattaci</a>
+          <WhatsAppCta className="contact-link">Contattaci</WhatsAppCta>
         </header>
 
         <div
@@ -300,7 +319,7 @@ export function BlondeHero() {
                 className="method-accordion"
                 type="multiple"
                 defaultValue={[methodSteps[0].value]}
-                aria-label="Le tre fasi del metodo"
+                aria-label="Le fasi del metodo"
               >
                 {methodSteps.map((step) => (
                   <AccordionItem key={step.value} value={step.value}>
@@ -362,14 +381,23 @@ export function BlondeHero() {
             Raccontaci il tuo capello: ti rispondiamo su WhatsApp con una
             valutazione onesta e i primi orari disponibili per la consulenza.
           </p>
-          <WhatsAppCta className="final-cta-button">
-            <FaWhatsapp aria-hidden="true" /> Scrivici su WhatsApp
+          <WhatsAppCta className="final-cta-button" message={requestMessage}>
+            <FaWhatsapp aria-hidden="true" /> Invia richiesta su WhatsApp
           </WhatsAppCta>
           <ul className="final-cta-points">
             <li>Diagnosi prima di ogni intervento</li>
             <li>Progetto colore su misura</li>
             <li>Nessun impegno: solo un consiglio onesto</li>
           </ul>
+          <address className="final-cta-address">
+            {siteConfig.businessName} · {fullAddress}
+            <br />
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer">
+              Apri in Google Maps ↗
+            </a>
+            {" · "}
+            <a href={`tel:+${siteConfig.whatsappNumber}`}>{siteConfig.phoneDisplay}</a>
+          </address>
         </motion.div>
       </section>
 
